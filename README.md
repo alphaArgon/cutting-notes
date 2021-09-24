@@ -1,4 +1,4 @@
-# 多行夹注 / Cutting Notes
+# [多行夹注 / Cutting Notes](https://www.w3.org/TR/jlreq/#inline_cutting_note)
 
 在网页中创建多行夹注。  
 Create cutting notes in your web pages.
@@ -17,8 +17,8 @@ You need to call this function manually if the contents need to be updated.
 
 ## 演示 / Demos
 
-- [Demo A](./demos/demo.a.html)
-- [Demo B](./demos/demo.b.html)
+- [Demo A](https://htmlpreview.github.io/?https://github.com/alphaArgon/cutting-notes/blob/main/demos/demo.a.html)
+- [Demo B](https://htmlpreview.github.io/?https://github.com/alphaArgon/cutting-notes/blob/main/demos/demo.b.html)
 
 ## 参数 / Parameters
 
