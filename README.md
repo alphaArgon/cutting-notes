@@ -60,7 +60,7 @@ Note that the time-consuming and the complexity of `innerHTML` have a positive c
 ### 耐操性 / Robustness
 
 如果输入看起来很正常，那么输出也不会很糟糕。注意，父容器的边界必须是矩形。另外，如果有偏离 inline box 较大的内部元素，可能会干扰行数判断。  
-The normal input, the normal out. Note that the internal boundary of the parent element must be a rectangle. And, an inner element derailed greatly from the inline box may interfere with the detection of the line count.
+The normal in, the normal out. Note that the internal boundary of the parent element must be a rectangle. And, an inner element derailed greatly from the inline box may interfere with the detection of the line count.
 
 在 Internet Explorer 下不稳定。  
 Not stable in Internet Explorer.
