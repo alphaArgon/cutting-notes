@@ -276,9 +276,9 @@ function makeCuttingNote(element, lineCount = 2, innerHTML, averageCharacterWidt
 
         let span = document.createElement("span");
         span.appendChild(range.extractContents());
-        span.setAttribute("style", `display: inline-block; ${kCSSMarginInlineEnd}: ${
-            isFirstLine ? -1 - firstLineEndPadding : -1
-        }px; ${kInlineSize}: ${inlineSize}px;`);
+        span.setAttribute("style", isFirstLine
+            ? `display: inline-block; ${kInlineSize}: ${inlineSize}px; ${kCSSMarginInlineEnd}: ${-1 - firstLineEndPadding}px;`
+            : `display: inline-block; ${kInlineSize}: ${inlineSize}px;`);
         fragment.appendChild(span);
         hasAppendSegment = true;
 
@@ -297,4 +297,4 @@ function makeCuttingNote(element, lineCount = 2, innerHTML, averageCharacterWidt
     element.appendChild(fragment);
 }
 
-makeCuttingNote.version = "0.1.0";
+makeCuttingNote.version = "0.1.1";
