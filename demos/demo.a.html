@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <title>Cutting Note Demo</title>
+    <script src="./cutting-notes.min.js"></script>
+    <style>
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    /* writing-mode: vertical-rl; */
+}
+
+.cutting-note {
+    font-size: 68.75%;
+    line-height: 1;
+    vertical-align: text-bottom;
+    font-weight: 500;
+    padding: 2em
+}
+
+.cutting-note > span {
+    vertical-align: text-bottom;
+}
+    </style>
+</head>
+<body>
+    <h1>Lorem Ipsum</h1>
+    <h2>Resize the window to test out this live demo</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. (<small class="cutting-note">Proin sit amet nisi nec neque rutrum pharetra eget id tellus. <u>Mauris congue urna in augue blandit luctus. <b>Sed sodales maximus ante ut dignissim. Nullam mollis volutpat mi,</b> vel fermentum magna commodo id.</u> Nulla at diam mi. Nunc bibendum vulputate scelerisque. Mauris imperdiet urna neque, at gravida mi malesuada pretium. Integer malesuada ultricies erat non rhoncus.</small class="cutting-note">) Nullam sagittis interdum dui in facilisis. Vivamus posuere accumsan nisl.</p>
+    <p>Nunc congue enim nisi, vitae rutrum sapien faucibus at. Nulla dapibus, ipsum id vehicula elementum, tellus leo dictum lectus, vitae lobortis odio ante suscipit nisl. Donec non placerat odio. Aenean quis libero volutpat, blandit arcu a, efficitur tortor. Ut consequat libero a scelerisque maximus. Ut eu finibus tortor, sit amet elementum dolor. Sed sollicitudin rutrum tellus a scelerisque. Suspendisse potenti. Morbi purus velit, accumsan a risus a, fermentum accumsan felis. Praesent vulputate turpis quam, nec commodo augue volutpat in. Aenean sed enim at elit aliquet tempor ornare eget lacus.</p>
+    <p>Cras tempor ipsum ut ipsum laoreet, <small class="cutting-note" data-lines="3">sed sollicitudin sem convallis. <del>Sed eget hendrerit eros. Vivamus ut finibus nibh. Curabitur a ullamcorper nibh, quis efficitur lorem.</del> Sed tempus a enim non ullamcorper. <b>Maecenas aliquet, neque id porta dapibus, <mark>leo urna malesuada elit, eget vulputate quam elit quis nulla. Proin vitae tincidunt ligula. Vestibulum faucibus rutrum metus sit amet iaculis. Mauris pharetra sem vitae neque pharetra rutrum. <ins>Ut at eros scelerisque, sollicitudin eros id, sollicitudin lacus.</ins> Vivamus sed posuere risus.</mark></b> Pellentesque molestie magna eu lacus finibus pulvinar.</small class="cutting-note"> Aliquam condimentum est sem, et efficitur sem elementum quis.</p>
+    <p>Donec cursus lorem in est vehicula iaculis. <small class="cutting-note">Maecenas sed luctus lorem. Aenean eget nulla vel ante pulvinar convallis eu a libero. <i>Pellentesque pretium lorem sit amet mauris fringilla viverra. Cras id justo non augue lobortis malesuada ac sed nulla. Suspendisse potenti. Nulla dignissim blandit gravida. Maecenas mattis diam ac est tempor porttitor quis vitae mi. Duis eget quam semper, convallis urna a, vehicula lectus. Vestibulum efficitur justo sapien, quis varius tortor consequat at. Suspendisse sed lorem efficitur, convallis tellus id, aliquam ligula. Etiam vitae diam est.</i> Fusce lacinia quam quis nisi mattis, eu semper enim feugiat.</small class="cutting-note"> Maecenas ultrices velit ut risus finibus ullamcorper.</p>
+    <p>Maecenas vulputate nisi eget augue tristique hendrerit. Maecenas euismod dignissim nunc non cursus. Donec sagittis pretium ante, vel iaculis metus porta at. Nulla finibus metus lorem, sit amet lobortis quam condimentum iaculis. Aliquam at pretium dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla mollis magna at aliquam. Morbi dapibus erat sit amet augue semper lobortis. Quisque imperdiet gravida laoreet. Curabitur dapibus, nisi eget ultricies dictum, dolor lacus semper lorem, vel hendrerit erat odio vitae sapien.</p>
+    <script>
+function updateCuttingNotes() {
+    Array.prototype.forEach.call(document.querySelectorAll(".cutting-note"), function (e) {
+        let innerHTML = e.getAttribute("data-inner-html");
+        if(!innerHTML) {
+            innerHTML = e.innerHTML;
+            e.setAttribute("data-inner-html", escape(innerHTML));
+        } else {
+            innerHTML = unescape(innerHTML);
+        }
+        makeCuttingNote(e, parseInt(e.getAttribute("data-lines")) || 2, innerHTML);
+    });
+}
+window.onresize = updateCuttingNotes;
+setTimeout(updateCuttingNotes, 1);
+    </script>
+</body>
+</html>
