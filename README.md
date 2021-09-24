@@ -18,7 +18,7 @@ You need to call this function manually if the contents need to be updated.
 ## 演示 / Demos
 
 - [Demo A](./demos/demo.a.html)
-- [Demo B](./demos/demo.a.html)
+- [Demo B](./demos/demo.b.html)
 
 ## 参数 / Parameters
 
